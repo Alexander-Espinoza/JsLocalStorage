@@ -1,5 +1,6 @@
 var formMovie = document.querySelector(".form-movie");
 formMovie.addEventListener("submit", function (e) {
+  e.preventDefault();
   let movie = document.querySelector(".add-movie").value;
   guardarMovie(movie);
   mostrarMovie(movie);
@@ -14,10 +15,19 @@ var button = document
 
 var forMEraser = document
   .querySelector(".eraser-movie")
-  .addEventListener("submit", function () {
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
     let movie = document.querySelector(".input-eraser-movie").value;
     borrarMovie(movie);
   });
+
+var buttonErased = document
+  .querySelector(".button-erased-all")
+  .addEventListener("click", function () {
+    localStorage.clear();
+    ul.innerHTML = "";
+  });
+
 
 mostrarMovies();
 
